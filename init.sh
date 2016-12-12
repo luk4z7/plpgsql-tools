@@ -55,17 +55,17 @@ if [ $ENVIRONMENT == 'LINUX' ]; then
     printf "${NC}"
 fi
 
-# Checando a instalação do postgres
+# check the installation for postgresql
 if which pg_dump > /dev/null; then
 	printf "${ORANGE}PostgreSQL${NC}\n"
-    printf "${LIGHT_PURPLE}Digite o nome da base de dados:${NC}\n"
+    printf "${LIGHT_PURPLE}Enter the database name:${NC}\n"
     read database
 
 	if [ -n "$database" ]; then
-		printf "${ORANGE}Atualizando funções ... ${NC}\n"
+		printf "${ORANGE}Deploy functions ... ${NC}\n"
 		$(which psql) -U postgres --password $password -d $database -f structure.sql
 	fi
 	echo ' '
 else
-    printf "${BLUE}Instalação do postgresql não encontrada${NC}\n"
+    printf "${BLUE}Installation of PostgreSQL not found${NC}\n"
 fi
