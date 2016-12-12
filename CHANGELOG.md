@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## v1.0.2
+
+_Released: 2016-12-12_
+
+- Changed all the references from portuguese to english
+
+
 ## v1.0.1
 
 _Released: 2016-12-09_
