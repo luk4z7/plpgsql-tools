@@ -18,6 +18,7 @@ INSERT INTO helper_functions VALUES('pg_size_object()', 'Show information about 
 INSERT INTO helper_functions VALUES('pg_terminate_backend()', 'Terminate processes by status', ARRAY['status CHARACTER VARYING'], 'BOOLEAN');
 INSERT INTO helper_functions VALUES('pg_terminate_backend_all()', 'Terminate all processes except the that executing the function', ARRAY[''], 'BOOLEAN');
 INSERT INTO helper_functions VALUES('pg_truncate_larger_tables()', 'Truncate all data of large tables, WARNING, don\'t execute this function in production', ARRAY['size INTEGER (in bytes)'], 'BOOLEAN');
+INSERT INTO helper_functions VALUES('pg_truncate_tables_with_search()', 'Truncate all tables with ilike, WARNING, don\'t execute this function in production', ARRAY['schema TEXT', 'key for search TEXT', 'preview BOOLEAN'], 'VOID');
 
 -- Executing the functions
 \i ./pg_get_definition_tables_json.sql
