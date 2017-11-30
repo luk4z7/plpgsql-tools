@@ -62,8 +62,19 @@ if which pg_dump > /dev/null; then
     read database
 
 	if [ -n "$database" ]; then
-		printf "${ORANGE}Deploy functions ... ${NC}\n"
-		$(which psql) -U postgres --password $password -d $database -f structure.sql
+
+        printf "${LIGHT_PURPLE}Enter the username:${NC}\n"
+        read username
+        if [ -n "$username" ]; then
+
+            printf "${LIGHT_PURPLE}Enter the password:${NC}\n"
+            read password
+            if [ -n "$password" ]; then
+
+                printf "${ORANGE}Deploy functions ... ${NC}\n"
+		        $(which psql) -U $username --password $password -d $database -f structure.sql
+            fi
+        fi
 	fi
 	echo ' '
 else

@@ -22,7 +22,7 @@ BEGIN
     ') AS CV;';
 
     FOR records IN EXECUTE consulta LOOP
-        execution := 'TRUNCATE ' || records.objectname;
+        execution := 'TRUNCATE ' || records.objectname || ' CASCADE';
         IF records.objecttype = 'r' AND records.objectname <> 'pg_largeobject' THEN
             EXECUTE execution;
 		   RAISE NOTICE 'removing table: % size: %', records.objectname, records.size;
